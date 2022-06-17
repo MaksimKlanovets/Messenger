@@ -1,7 +1,7 @@
 #pragma once
 #include "cli.h"
 
-class CLIprivataUserData
+class CLIprivataUserData : public CLI
 {
 public:
 	CLIprivataUserData();

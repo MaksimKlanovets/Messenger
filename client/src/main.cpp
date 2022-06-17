@@ -1,6 +1,6 @@
-#include "baseApp.h"
-#include "cli.h"
-#include "cliBaseApp.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/baseApp.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cli.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cliBaseApp.h"
 #include <ctime>
 
 // hello vet
@@ -18,8 +18,8 @@ auto main()->int
 	CLIBaseApp  cliBaseApp;
 	CLI *cli = &cliBaseApp;
 	
-	signIn();
-	signUp();
+	//signIn();
+	//signUp();
 			
 	return 0;
 }

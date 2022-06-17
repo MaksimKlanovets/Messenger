@@ -4,7 +4,7 @@
 #include "baseApp.h"
 #include "cli.h"
 
-class CLIBaseApp
+class CLIBaseApp : public CLI
 {
 public:
 	CLIBaseApp();

@@ -1,7 +1,7 @@
 #pragma once
 #include "cli.h"
 
-class cliUserData 
+class cliUserData : public CLI
 {
 public:
 	void help()override;

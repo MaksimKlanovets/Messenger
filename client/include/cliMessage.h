@@ -1,6 +1,6 @@
 #pragma once
 #include "cli.h"
-class CLImessage
+class CLImessage : public CLI
 {
 public:
 	void help()override;

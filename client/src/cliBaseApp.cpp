@@ -1,6 +1,6 @@
-#include "cliBaseApp.h"
-#include "cliPrivateUserData.h"
-#include "cliMessage.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cliBaseApp.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cliPrivateUserData.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cliMessage.h"
 
 
 CLIBaseApp::CLIBaseApp()

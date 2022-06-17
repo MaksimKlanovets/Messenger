@@ -1,4 +1,4 @@
-#include "message.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/message.h"
 #include <sstream>
 
 Message::Message()
