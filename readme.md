@@ -1,3 +1,1 @@
-# Git and Github course
-
-Nice!
+# Just messenger
