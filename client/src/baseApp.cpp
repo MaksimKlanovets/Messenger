@@ -24,3 +24,19 @@ BaseApp& BaseApp::operator=(const BaseApp&)
 }
 
 
+void BaseApp::writeRegUserToFile()
+{
+
+}
+void BaseApp::writeMessageToFile()
+{
+
+}
+void BaseApp::readUsersFromFile()
+{
+
+}
+void BaseApp::readHistoryMes()
+{
+	
+}

@@ -4,6 +4,6 @@
 class cliUserData : public CLI
 {
 public:
-	void help()override;
+	void help() override;
 };
 

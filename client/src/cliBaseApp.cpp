@@ -1,6 +1,6 @@
 #include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cliBaseApp.h"
-#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cliPrivateUserData.h"
-#include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cliMessage.h"
+#include "cliPrivateUserData.cpp"
+#include "cliMessage.cpp"
 
 
 CLIBaseApp::CLIBaseApp()
@@ -27,7 +27,7 @@ void CLIBaseApp::signIn()
 
 	// handle meassages write, sent(for one, for group or all users), receive incoming messages(notifications read time handle, who sent, time messages, a little prewiew)
 
-	CLIprivataUserData cliPrivateUserData;
+	//CLIprivataUserData cliPrivateUserData;
 			
 	CLImessage cliMessage;
 			

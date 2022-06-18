@@ -6,19 +6,19 @@ CLIprivataUserData::CLIprivataUserData()
 const std::string CLIprivataUserData::writeTempName()
 {
 
-	
+	return "";
 }
 
 const std::string CLIprivataUserData::writeTempLogin()
 {
 
-	
+	return "";
 }
 
 const std::string CLIprivataUserData::writeTempPassword()
 {
-
-
+	
+	return "";
 }
 
 void CLIprivataUserData::help()

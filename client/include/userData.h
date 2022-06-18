@@ -3,7 +3,7 @@
 #include <iostream>
 #include "message.h"
 #include <vector>
-#include "privateUserData.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/src/privateUserData.cpp"
 
 class UserData
 {
