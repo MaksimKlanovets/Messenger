@@ -42,7 +42,6 @@ void BaseApp::readUsersFromFile()
 	
 	if (myfile.is_open())
 	{
-		std::cout << "HERE!\n";
 		while (true)
 		{
 			myfile >> first_output >> second_output;
