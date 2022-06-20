@@ -4,7 +4,7 @@
 //#pragma warning(disable: 4996)
 
 
-#include "userData.h"
+#include "/home/neronsuper/Documents/vsc projects/Messanger/client/src/userData.cpp"
 #include <vector>
 #include <string>
 #include <fstream>
@@ -38,6 +38,6 @@ private:
 	BaseApp(const BaseApp&);
 	BaseApp& operator=(const BaseApp&);
 	static BaseApp* _instance;
-	std::vector <UserData> _userData = {};
+	std::vector <UserData> _userData = {}; 
 	
 };

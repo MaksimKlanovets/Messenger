@@ -6,6 +6,7 @@
 CLIBaseApp::CLIBaseApp()
 {
 	_baseApp = nullptr;
+	_userData = nullptr;
 }
 
 

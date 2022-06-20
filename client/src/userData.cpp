@@ -7,12 +7,14 @@ UserData::UserData()
 	_privateUserData = {};
 }
 
-UserData::UserData(const UserData& copy)
+UserData::UserData(const UserData& copy) 
+	: _privateUserData(copy._privateUserData), _messages(copy._messages)
 {
 	
 }
 
 UserData::UserData(PrivateUserData const &privateUserData)
+	: _privateUserData(privateUserData)
 {
 	
 }
@@ -37,7 +39,8 @@ void UserData::setName(const std::string& name)
 
 const Message* UserData::setMessage()
 {
-
+	Message* m = new Message(); 
+	return m;
 }
 
 void UserData::setMessageData(Message&& messageData)
