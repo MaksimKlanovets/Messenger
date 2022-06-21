@@ -52,9 +52,18 @@ void CLIBaseApp::signUp()
 
 void CLIBaseApp::help()
 {
-	std::cout << "To terminate the program 0 " << std::endl;
-	std::cout << "Sign in 1" << std::endl;
-	std::cout << "Sign up 2" << std::endl;
+	std::system("clear");
+	std::cout << "0. To terminate the program" << std::endl;
+	std::cout << "1. Sign in" << std::endl;
+	std::cout << "2. Sign up" << std::endl;
+	int requestToUser;
+	std::cin >> requestToUser;
+	switch (requestToUser)
+	{
+	case 0:
+		exit(0);
+		break;
+	}
 }
 
 
