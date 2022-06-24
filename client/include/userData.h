@@ -18,7 +18,7 @@ public:
 	const Message* setMessage();
 	void setMessageData(Message&& messageData);
 
-	
+	PrivateUserData* getPrivateUserData();
 
 private:
 	PrivateUserData _privateUserData;

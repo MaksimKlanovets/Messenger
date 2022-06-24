@@ -6,7 +6,7 @@
 CLIBaseApp::CLIBaseApp()
 {
 	_baseApp = nullptr;
-	_userData = nullptr;
+	
 }
 
 
@@ -38,13 +38,37 @@ void CLIBaseApp::signUp()
 {
 	_baseApp = BaseApp::instance();
 
-	CLIBaseApp cliBaseApp;
-	CLIprivataUserData cliPrivareData;
+	// CLIBaseApp cliBaseApp;
+	// CLIprivataUserData cliPrivateData;
 
-	PrivateUserData privateUserData;
+	// PrivateUserData privateUserData;
 	
-	// create new user , log, password ... , check if exist 
-	// add user to base
+	// // create a new user , log, password ... , check if exist 
+	// // add user to base
+
+	std::string login;
+	std::string password;
+	do
+	{
+		std::system("clear");
+		std::cout << "Username: ";
+		std::cin >> login;
+
+		
+		if (_baseApp->isUserExist(login))
+			continue;
+		
+
+		std::cout << "Password: ";
+		std::cin >> password;
+
+		break;
+	}
+	while (true);
+
+	_userData = UserData(PrivateUserData(login, password));
+
+	_baseApp->addUser(_userData);
 
 	this->signIn();
 

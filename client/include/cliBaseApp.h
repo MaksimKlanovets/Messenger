@@ -15,5 +15,5 @@ public:
 	
 private:
 	BaseApp* _baseApp;
-	UserData* _userData;
+	UserData _userData;
 };

@@ -10,6 +10,8 @@
 #include <fstream>
 #include <filesystem>
 #include <iostream>
+#include <sys/stat.h>
+
 
 
 class BaseApp
@@ -18,12 +20,15 @@ public:
 	static BaseApp* instance();
 	
 
-	void addUser(UserData userData);
+	void addUser(UserData& userData);
     UserData *authUser(UserData userData);
 	void sentMessageToAll(const std::string &message);
 
 	const Message *sentMessage();
 	bool isLoginAuth();
+	bool isUserExist(std::string username);
+
+	void createDirectory(std::string string_path, std::string directory_name);
 	
 	void writeRegUserToFile();
 	void writeMessageToFile();

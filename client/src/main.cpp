@@ -23,9 +23,12 @@ auto main()->int
 	CLIBaseApp  cliBaseApp;
 	CLI *cli = &cliBaseApp;
 	
+
+	
 	while (true)
 	{
 		int requestToUser;
+		
 		mainMenu();
 		std::cin >> requestToUser;
 		switch (requestToUser)

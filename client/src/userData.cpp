@@ -49,7 +49,10 @@ void UserData::setMessageData(Message&& messageData)
 	 
 }
 
-
+PrivateUserData* UserData::getPrivateUserData()
+{
+	return &_privateUserData;
+}
 
 
 
