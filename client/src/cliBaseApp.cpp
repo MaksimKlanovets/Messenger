@@ -70,7 +70,7 @@ void CLIBaseApp::signUp()
 
 	_baseApp->addUser(_userData);
 
-	this->signIn();
+	//this->signIn();
 
 }
 

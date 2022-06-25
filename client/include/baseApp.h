@@ -11,6 +11,7 @@
 #include <filesystem>
 #include <iostream>
 #include <sys/stat.h>
+#include <memory>
 
 
 
@@ -43,6 +44,6 @@ private:
 	BaseApp(const BaseApp&);
 	BaseApp& operator=(const BaseApp&);
 	static BaseApp* _instance;
-	std::vector <UserData> _userData = {}; 
+	std::vector <std::unique_ptr<UserData>> _userData = {};
 	
 };

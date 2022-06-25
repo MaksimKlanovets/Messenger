@@ -45,8 +45,10 @@ void BaseApp::readUsersFromFile()
 		while (true)
 		{
 			myfile >> first_output >> second_output;
-			if (myfile.eof()) break;
-			_userData.push_back(UserData(PrivateUserData(first_output, second_output)));
+			if (myfile.eof()) 
+				break;
+
+			_userData.push_back(std::make_unique<UserData>(PrivateUserData(first_output, second_output)));
 		}
 		
 	}
@@ -66,7 +68,7 @@ bool BaseApp::isUserExist(std::string username)
 {
 	for (int i = 0; i < _userData.size(); ++i)
 	{
-		if (_userData[i].getPrivateUserData()->getPData()->first == username)
+		if (_userData[i].get()->getPrivateUserData()->getPData()->first == username)
 			return true;
 	}
 
@@ -75,7 +77,7 @@ bool BaseApp::isUserExist(std::string username)
 
 void BaseApp::addUser(UserData& userData)
 {
-	_userData.push_back(userData);
+	_userData.push_back(std::make_unique<UserData>(userData));
 	
 	std::fstream myfile("/home/neronsuper/Documents/vsc projects/Messanger/Database/users.txt", std::ios::app);
 	if (myfile.is_open())
