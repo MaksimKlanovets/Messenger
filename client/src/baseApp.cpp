@@ -92,8 +92,8 @@ void BaseApp::addUser(std::unique_ptr<UserData>& userData)
 	mainDirectory.append(userData.get()->getPrivateUserData()->getPData()->first).append("/");
 
 	createDirectory(mainDirectory, "chats"); //creating chats
-	
-	_userData.push_back(move(userData));
+
+	_userData.push_back(std::move(userData));
 }
 
 void BaseApp::createDirectory(std::string string_path, std::string directory_name)

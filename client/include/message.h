@@ -2,11 +2,12 @@
 #include <string>
 #include <ctime>
 
-#pragma warning(disable: 4996)
+//#pragma warning(disable: 4996)
 class Message
 {
 public:
 	Message();
+	Message(const Message& copy);
 	Message(const std::string&,	const std::string&);
 
 	const std::string getMessage() const;

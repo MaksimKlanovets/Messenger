@@ -15,6 +15,12 @@ Message::Message(const std::string& login, const std::string &message)
 	
 }
 
+Message::Message(const Message& copy)
+	: _data(copy._data), _dt(copy._dt) 
+{
+
+}
+
 const std::string Message::getMessage() const
 {
 	return _data.second;

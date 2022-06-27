@@ -11,9 +11,7 @@ class UserData
 public:
 	UserData();
 	UserData(const UserData& copy);
-	//UserData(const std::unique_ptr<UserData>& copy);
 	UserData(PrivateUserData const &privateUserData);
-	//UserData(const std::unique_ptr<UserData>&) = delete;
 
 	void setLogin(const std::string& login);
 	void setPassword(const std::string& password);
@@ -25,7 +23,7 @@ public:
 
 private:
 	PrivateUserData _privateUserData;
-	std::vector<Message> _messages;
+	std::vector <std::unique_ptr<Message>> _messages = {};
 	
 };
 
