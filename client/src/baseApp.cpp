@@ -64,11 +64,23 @@ void BaseApp::readHistoryMes()
 	
 }
 
-bool BaseApp::isUserExist(std::string username)
+bool BaseApp::isUserExist(std::string& username)
 {
 	for (int i = 0; i < _userData.size(); ++i)
 	{
 		if (_userData[i].get()->getPrivateUserData()->getPData()->first == username)
+			return true;
+	}
+
+	return false;
+}
+
+bool BaseApp::isLoginAndPasswordCorrect(std::string& login, std::string& password)
+{
+	for (int i = 0; i < _userData.size(); ++i)
+	{
+		if (_userData[i].get()->getPrivateUserData()->getPData()->first == login &&
+			_userData[i].get()->getPrivateUserData()->getPData()->second == password)
 			return true;
 	}
 

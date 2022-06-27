@@ -28,7 +28,27 @@ void CLIBaseApp::signIn()
 
 	// handle meassages write, sent(for one, for group or all users), receive incoming messages(notifications read time handle, who sent, time messages, a little prewiew)
 
-	//CLIprivataUserData cliPrivateUserData;
+	do
+	{
+		std::string login;
+		std::string password;
+
+		std::system("clear");
+		std::cout << "Your login: ";
+		std::cin >> login;
+		std::cout << "Your password: ";
+		std::cin >> password;
+
+		if (_baseApp->isLoginAndPasswordCorrect(login, password))
+		{
+			_userData = std::make_unique<UserData>(PrivateUserData(login, password));
+
+			break;
+		}
+
+
+	}
+	while (true);
 			
 	CLImessage cliMessage;
 			
@@ -66,9 +86,10 @@ void CLIBaseApp::signUp()
 	}
 	while (true);
 
-	_userData = std::make_unique<UserData>(PrivateUserData(login, password));
+	
+	auto tmp = std::make_unique<UserData>(PrivateUserData(login, password));
 
-	_baseApp->addUser(_userData);
+	_baseApp->addUser(tmp);
 
 	//this->signIn();
 

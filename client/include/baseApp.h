@@ -27,7 +27,8 @@ public:
 
 	const Message *sentMessage();
 	bool isLoginAuth();
-	bool isUserExist(std::string username);
+	bool isUserExist(std::string& username);
+	bool isLoginAndPasswordCorrect(std::string&, std::string&);
 
 	void createDirectory(std::string string_path, std::string directory_name);
 	
