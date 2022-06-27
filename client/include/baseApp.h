@@ -21,7 +21,7 @@ public:
 	static BaseApp* instance();
 	
 
-	void addUser(UserData& userData);
+	void addUser(std::unique_ptr<UserData>& userData);
     UserData *authUser(UserData userData);
 	void sentMessageToAll(const std::string &message);
 

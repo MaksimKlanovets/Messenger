@@ -15,5 +15,5 @@ public:
 	
 private:
 	BaseApp* _baseApp;
-	UserData _userData;
+	std::unique_ptr<UserData> _userData;
 };

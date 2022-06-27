@@ -66,7 +66,7 @@ void CLIBaseApp::signUp()
 	}
 	while (true);
 
-	_userData = UserData(PrivateUserData(login, password));
+	_userData = std::make_unique<UserData>(PrivateUserData(login, password));
 
 	_baseApp->addUser(_userData);
 
