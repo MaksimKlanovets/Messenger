@@ -7,8 +7,8 @@ UserData::UserData()
 	_privateUserData = {};
 }
 
-UserData::UserData(const UserData& copy) 
-	: _privateUserData(copy._privateUserData)//, _messages(std::move(copy._messages))
+UserData::UserData(UserData&& copy) 
+	: _privateUserData(copy._privateUserData), _messages(std::move(copy._messages))
 {
 	
 }

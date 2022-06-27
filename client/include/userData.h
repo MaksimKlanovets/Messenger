@@ -10,7 +10,8 @@ class UserData
 {
 public:
 	UserData();
-	UserData(const UserData& copy);
+	//UserData(const UserData& copy); is not nessesary
+	UserData(UserData&& copy);
 	UserData(PrivateUserData const &privateUserData);
 
 	void setLogin(const std::string& login);
