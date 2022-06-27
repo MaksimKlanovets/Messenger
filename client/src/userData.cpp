@@ -8,13 +8,13 @@ UserData::UserData()
 }
 
 UserData::UserData(UserData&& copy) 
-	: _privateUserData(copy._privateUserData), _messages(std::move(copy._messages))
+	: _privateUserData(std::move(copy._privateUserData)), _messages(std::move(copy._messages))
 {
 	
 }
 
 UserData::UserData(PrivateUserData const &privateUserData)
-	: _privateUserData(privateUserData)
+	: _privateUserData(std::make_unique<PrivateUserData>(privateUserData))
 {
 	
 }
@@ -51,7 +51,7 @@ void UserData::setMessageData(Message&& messageData)
 
 PrivateUserData* UserData::getPrivateUserData()
 {
-	return &_privateUserData;
+	return _privateUserData.get();
 }
 
 

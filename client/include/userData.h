@@ -10,7 +10,7 @@ class UserData
 {
 public:
 	UserData();
-	//UserData(const UserData& copy); is not nessesary
+	//UserData(const UserData& copy); is not necessary
 	UserData(UserData&& copy);
 	UserData(PrivateUserData const &privateUserData);
 
@@ -23,7 +23,7 @@ public:
 	PrivateUserData* getPrivateUserData();
 
 private:
-	PrivateUserData _privateUserData;
+	std::unique_ptr<PrivateUserData> _privateUserData;
 	std::vector <std::unique_ptr<Message>> _messages = {};
 	
 };
