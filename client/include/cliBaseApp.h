@@ -9,6 +9,7 @@ class CLIBaseApp : public CLI
 public:
 	CLIBaseApp();
 
+	void menu_CBA();
 	void signIn();
 	void signUp();
 	void help()override;

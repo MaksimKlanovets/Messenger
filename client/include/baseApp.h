@@ -23,16 +23,15 @@ public:
 
 	void addUser(std::unique_ptr<UserData>& userData);
     UserData *authUser(UserData userData);
-	void sentMessageToAll(const std::string &message);
+	void sendMessageToAll(const std::string &message);
 
-	const Message *sentMessage();
+	void sendMessage(const Message& message, const std::string& receiver);
 	bool isLoginAuth();
 	bool isUserExist(std::string& username);
 	bool isLoginAndPasswordCorrect(std::string&, std::string&);
 
 	void createDirectory(std::string string_path, std::string directory_name);
 	
-	void writeRegUserToFile();
 	void writeMessageToFile();
 	//read private data
 	void readUsersFromFile();
