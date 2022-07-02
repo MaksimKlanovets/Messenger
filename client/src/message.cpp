@@ -10,8 +10,10 @@ Message::Message()
 
 
 Message::Message(const std::string& login, const std::string &message)
+	: _data(login, message)  
 {
-	//and set current time 
+	std::time_t t = std::time(0);   // get time now
+	_dt = std::localtime(&t);
 	
 }
 

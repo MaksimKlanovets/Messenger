@@ -19,7 +19,8 @@ auto main()->int
 	//read private data from file
 	baseApp->readUsersFromFile();
 	//read history from file
-	baseApp->readHistoryMes();
+	//baseApp->readHistoryMes();
+	
 	CLIBaseApp  cliBaseApp;
 	CLI *cli = &cliBaseApp;
 	

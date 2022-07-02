@@ -24,10 +24,6 @@ BaseApp& BaseApp::operator=(const BaseApp&)
 }
 
 
-void BaseApp::writeRegUserToFile()
-{
-
-}
 void BaseApp::writeMessageToFile()
 {
 
@@ -112,4 +108,23 @@ void BaseApp::createDirectory(std::string string_path, std::string directory_nam
 {
 	string_path.append(directory_name);
 	int status = mkdir(string_path.c_str(),0777);
+}
+
+void BaseApp::sendMessage(const Message& message, const std::string& receiver)
+{
+	std::string currentUser = "/home/neronsuper/Documents/vsc projects/Messanger/Database/users/"; // opening file current user 
+    currentUser.append(message.getLogin()).append("/chats/").append(receiver);
+
+    std::string recipientUser = "/home/neronsuper/Documents/vsc projects/Messanger/Database/users/"; // opening recipient file user
+    recipientUser.append(receiver).append("/chats/").append(message.getLogin());
+
+    std::fstream currentUserFile(currentUser, std::ios::app);
+    std::fstream recipientUserFile(recipientUser, std::ios::app);
+	if (currentUserFile.is_open() && recipientUserFile.is_open())
+	{
+		currentUserFile << message.getLogin() << ": " << message.getMessage() << "\n";
+        recipientUserFile << message.getLogin() << ": " << message.getMessage() << "\n";
+	}
+	currentUserFile.close();
+    recipientUserFile.close();
 }

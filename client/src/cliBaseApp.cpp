@@ -9,16 +9,19 @@ CLIBaseApp::CLIBaseApp()
 	
 }
 
+void CLIBaseApp::menu_CBA()
+{
+	std::system("clear");
+	std::cout << "User name: " << _userData.get()->getPrivateUserData()->getPData()->first << "\n";
+    std::cout << "1. Send a massage\n";
+    std::cout << "2. Look at a chat\n";
+    std::cout << "0. Log out of your account\n";
+}
 
 void CLIBaseApp::signIn()
 {
 	_baseApp = BaseApp::instance();
 
-	CLIBaseApp cliBaseApp;
-	CLIprivataUserData cliPrivateUserData;
-	CLI* cli = &cliPrivateUserData;
-	
-	PrivateUserData privateUserData;
 
 	//handle user data /privateUserData / log, password, name ... if needed
 
@@ -49,8 +52,33 @@ void CLIBaseApp::signIn()
 
 	}
 	while (true);
-			
+	
 	CLImessage cliMessage;
+	CLI* cli = &cliMessage;
+	
+
+	while(true)
+	{
+		menu_CBA();
+
+		int requestToUser;
+		std::cin >> requestToUser;
+
+		switch (requestToUser)
+		{
+		case 1:
+			cliMessage.sendMessage(_userData.get());
+			break;
+		case 2:
+
+			break;
+		case 0:
+			_userData = {};
+			return;
+		}
+	}
+
+
 			
 }
 
