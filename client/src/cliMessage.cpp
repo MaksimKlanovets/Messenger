@@ -1,6 +1,7 @@
 #include "/home/neronsuper/Documents/vsc projects/Messanger/client/include/cliMessage.h"
 
-CLImessage::CLImessage()
+CLImessage::CLImessage(UserData* _userData)
+    : _userData(_userData)
 {
     _baseApp = nullptr;
 }
@@ -9,7 +10,7 @@ void CLImessage::help()
 {
 }
 
-void CLImessage::sendMessage(UserData* ud)
+void CLImessage::sendMessage()
 {
     _baseApp = BaseApp::instance();
 
@@ -34,7 +35,7 @@ void CLImessage::sendMessage(UserData* ud)
     }
     while(1);
 
-    Message ms(ud->getPrivateUserData()->getPData()->first, tmpMessage);
+    Message ms(_userData->getPrivateUserData()->getPData()->first, tmpMessage);
     _baseApp->sendMessage(ms, receiver);
 
 }

@@ -53,7 +53,7 @@ void CLIBaseApp::signIn()
 	}
 	while (true);
 	
-	CLImessage cliMessage;
+	CLImessage cliMessage(_userData.get());
 	CLI* cli = &cliMessage;
 	
 
@@ -67,7 +67,7 @@ void CLIBaseApp::signIn()
 		switch (requestToUser)
 		{
 		case 1:
-			cliMessage.sendMessage(_userData.get());
+			cliMessage.sendMessage();
 			break;
 		case 2:
 
