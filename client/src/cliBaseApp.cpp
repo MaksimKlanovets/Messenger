@@ -70,7 +70,7 @@ void CLIBaseApp::signIn()
 			cliMessage.sendMessage();
 			break;
 		case 2:
-
+			cliMessage.showChat();
 			break;
 		case 0:
 			_userData = {};

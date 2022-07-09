@@ -55,9 +55,56 @@ void BaseApp::readUsersFromFile()
 	myfile.close();
 }
 
-void BaseApp::readHistoryMes(UserData* userData)
+std::string BaseApp::lastLine(std::string path)
 {
+	std::string lastline = " ";
 	
+	const std::string filename = path;
+	std::ifstream fs;
+	fs.open(filename.c_str(), std::fstream::in);
+	if(fs.is_open())
+	{
+		//Got to the last character before EOF
+		fs.seekg(-1, std::ios_base::end);
+		if(fs.peek() == '\n')
+		{
+		//Start searching for \n occurrences
+		fs.seekg(-1, std::ios_base::cur);
+		int i = fs.tellg();
+		for(i;i > 0; i--)
+		{
+			if(fs.peek() == '\n')
+			{
+			//Found
+			fs.get();
+			break;
+			}
+			//Move one character back
+			fs.seekg(i, std::ios_base::beg);
+		}
+		}
+		
+		getline(fs, lastline);
+
+	}
+	
+	return lastline;
+}
+
+void BaseApp::readFirstMesFromChats(UserData* userData)
+{
+	std::string tempStr;
+    std::string path = "/home/neronsuper/Documents/vsc projects/Messanger/Database/users/";
+    path.append(userData->getPrivateUserData()->getPData()->first).append("/chats/");
+ 
+	
+	for (auto & p : fs::directory_iterator(path))
+	{
+		std::string currentUser = p.path().filename().generic_string();
+
+		userData->getMessages()[currentUser] = std::make_unique<Message>(currentUser, lastLine(path.append(currentUser)));
+	}
+
 }
 
 bool BaseApp::isUserExist(std::string& username)

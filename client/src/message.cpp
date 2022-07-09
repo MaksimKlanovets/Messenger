@@ -25,12 +25,12 @@ Message::Message(const Message& copy)
 
 }
 
-const std::string Message::getMessage() const
+const std::string& Message::getMessage() const
 {
 	return _data.second;
 }
 
-const std::string Message::getLogin() const
+const std::string& Message::getLogin() const
 {
 	return _data.first;
 }

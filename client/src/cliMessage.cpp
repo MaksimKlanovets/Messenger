@@ -39,3 +39,19 @@ void CLImessage::sendMessage()
     _baseApp->sendMessage(ms, receiver);
 
 }
+
+void CLImessage::showChat()
+{
+    _baseApp->readFirstMesFromChats(_userData);
+    std::string chat;
+    do
+    {
+        std::system("clear");
+
+        std::cout << "Enter currect chat which you wanna see: ";
+        std::cin >> chat;
+
+        break;
+    } 
+    while (1);
+}

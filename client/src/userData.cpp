@@ -45,7 +45,7 @@ const Message* UserData::setMessage()
 
 void UserData::setMessageData(Message&& messageData)
 {
-	_messages.push_back(std::make_unique<Message>(messageData));
+	_messages[messageData.getLogin()] = std::make_unique<Message>(messageData);
 }
 
 PrivateUserData* UserData::getPrivateUserData()
@@ -53,7 +53,10 @@ PrivateUserData* UserData::getPrivateUserData()
 	return _privateUserData.get();
 }
 
-
+std::map<std::string, std::unique_ptr<Message>>& UserData::getMessages()
+{
+	return _messages;
+}
 
 
 
