@@ -55,7 +55,7 @@ void BaseApp::readUsersFromFile()
 	myfile.close();
 }
 
-void BaseApp::readHistoryMes()
+void BaseApp::readHistoryMes(UserData* userData)
 {
 	
 }

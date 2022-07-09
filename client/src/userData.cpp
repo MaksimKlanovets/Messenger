@@ -45,8 +45,7 @@ const Message* UserData::setMessage()
 
 void UserData::setMessageData(Message&& messageData)
 {
-
-	 
+	_messages.push_back(std::make_unique<Message>(messageData));
 }
 
 PrivateUserData* UserData::getPrivateUserData()

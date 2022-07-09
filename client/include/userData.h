@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <map>
 #include "/home/neronsuper/Documents/vsc projects/Messanger/client/src/message.cpp"
 #include "/home/neronsuper/Documents/vsc projects/Messanger/client/src/privateUserData.cpp"
 
@@ -10,7 +11,6 @@ class UserData
 {
 public:
 	UserData();
-	//UserData(const UserData& copy); is not necessary
 	UserData(UserData&& copy);
 	UserData(PrivateUserData const &privateUserData);
 

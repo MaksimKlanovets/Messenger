@@ -6,6 +6,7 @@ Message::Message()
 	std::time_t t = std::time(0);   // get time now
 	_dt = std::localtime(&t);
 	_data = {};
+	_messages = {};
 }
 
 
@@ -14,11 +15,12 @@ Message::Message(const std::string& login, const std::string &message)
 {
 	std::time_t t = std::time(0);   // get time now
 	_dt = std::localtime(&t);
+	_messages = {};
 	
 }
 
 Message::Message(const Message& copy)
-	: _data(copy._data), _dt(copy._dt) 
+	: _data(copy._data), _dt(copy._dt), _messages(copy._messages)
 {
 
 }

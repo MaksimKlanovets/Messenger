@@ -8,10 +8,14 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include <filesystem>
 #include <iostream>
 #include <sys/stat.h>
 #include <memory>
+#include <experimental/filesystem>
+
+
+
+namespace fs = std::experimental::filesystem;
 
 
 
@@ -36,7 +40,7 @@ public:
 	//read private data
 	void readUsersFromFile();
 	//read histoty messages
-	void readHistoryMes();
+	void readHistoryMes(UserData* userData);
 
 	~BaseApp() = delete;
 private:
