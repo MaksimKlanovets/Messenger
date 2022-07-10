@@ -10,8 +10,8 @@ public:
 	Message(const Message& copy);
 	Message(const std::string&,	const std::string&);
 
-	const std::string getMessage() const;
-	const std::string getLogin() const;
+	const std::string& getMessage() const;
+	const std::string& getLogin() const;
 	const tm &getTime() const;
 
 	void setLogin(std::string &login);

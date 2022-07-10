@@ -35,12 +35,13 @@ public:
 	bool isLoginAndPasswordCorrect(std::string&, std::string&);
 
 	void createDirectory(std::string string_path, std::string directory_name);
+	std::string lastLine(std::string path);
 	
 	void writeMessageToFile();
 	//read private data
 	void readUsersFromFile();
 	//read histoty messages
-	void readHistoryMes(UserData* userData);
+	void readFirstMesFromChats(UserData* userData);
 
 	~BaseApp() = delete;
 private:

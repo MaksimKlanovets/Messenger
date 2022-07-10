@@ -21,10 +21,11 @@ public:
 	void setMessageData(Message&& messageData);
 
 	PrivateUserData* getPrivateUserData();
+	std::map <std::string, std::unique_ptr<Message>>& getMessages();
 
 private:
 	std::unique_ptr<PrivateUserData> _privateUserData;
-	std::vector <std::unique_ptr<Message>> _messages = {};
+	std::map <std::string, std::unique_ptr<Message>> _messages = {};
 	
 };
 

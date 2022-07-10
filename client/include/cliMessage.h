@@ -8,6 +8,7 @@ public:
 	CLImessage(UserData*);
 
 	void sendMessage();
+	void showChat();
 	void help()override;
 
 private:
