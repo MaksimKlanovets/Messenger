@@ -18,12 +18,6 @@ void mainMenu()
 
 auto main()->int
 {
-
-	
-
-	
-
-#if 1
 	//singelton
 	BaseApp *baseApp = BaseApp::instance();
 	//read private data from file
@@ -55,11 +49,6 @@ auto main()->int
 			break;
 		}
 	}
-	
 
-	//signIn();
-	//signUp();
-
-#endif
 	return 0;
 }

@@ -11,11 +11,12 @@ public:
 	Message(const std::string&,	const std::string&);
 
 	const std::string& getMessage() const;
+	std::vector<std::string>& getMessages();
 	const std::string& getLogin() const;
 	const tm &getTime() const;
 
 	void setLogin(std::string &login);
-	void setMessage(std::string& message);
+	void setMessage(std::string&& message);
 	void setDt(tm &dt);
 
 

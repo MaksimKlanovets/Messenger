@@ -42,7 +42,7 @@ void CLImessage::sendMessage()
 
 void CLImessage::showChat()
 {
-    _baseApp->readFirstMesFromChats(_userData);
+    
     std::string chat;
     do
     {
@@ -51,7 +51,47 @@ void CLImessage::showChat()
         std::cout << "Enter currect chat which you wanna see: ";
         std::cin >> chat;
 
+        // here have to be check if it exists
+
         break;
     } 
+    while (1);
+
+    std::string tmp;
+    int userResponse;
+    std::string tmpLastline = "";
+    do
+    {
+        _baseApp->readFirstMesFromChats(_userData); // reading first messages from all chats
+        
+        if (tmpLastline != _userData->getMessages()[chat].get()->getMessage()) // if message is new, reread it
+        {
+            _baseApp->readFullChat(_userData, chat);
+        }
+
+        std::system("clear");
+        for (int i = 0; i < _userData->getMessages()[chat].get()->getMessages().size(); i++) // print messages
+        {
+            std::cout << _userData->getMessages()[chat].get()->getMessages()[i] << "\n";
+        }
+
+        tmpLastline = _userData->getMessages()[chat].get()->getMessage(); // write oldest message
+        
+
+        std::cout << "\n1. Update\n" <<
+                       "2. Close the chat\n";
+        
+        std::cin >> userResponse;
+
+        switch (userResponse)
+        {
+        case 1:
+            break;
+        case 2:
+            return;
+        default:
+            break;
+        }
+    }
     while (1);
 }

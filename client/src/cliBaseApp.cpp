@@ -22,15 +22,6 @@ void CLIBaseApp::signIn()
 {
 	_baseApp = BaseApp::instance();
 
-
-	//handle user data /privateUserData / log, password, name ... if needed
-
-	
-	//check / is user autorization use Userdata
-	
-
-	// handle meassages write, sent(for one, for group or all users), receive incoming messages(notifications read time handle, who sent, time messages, a little prewiew)
-
 	do
 	{
 		std::string login;
@@ -56,7 +47,6 @@ void CLIBaseApp::signIn()
 	CLImessage cliMessage(_userData.get());
 	CLI* cli = &cliMessage;
 	
-
 	while(true)
 	{
 		menu_CBA();
@@ -76,23 +66,12 @@ void CLIBaseApp::signIn()
 			_userData = {};
 			return;
 		}
-	}
-
-
-			
+	}	
 }
 
 void CLIBaseApp::signUp()
 {
 	_baseApp = BaseApp::instance();
-
-	// CLIBaseApp cliBaseApp;
-	// CLIprivataUserData cliPrivateData;
-
-	// PrivateUserData privateUserData;
-	
-	// // create a new user , log, password ... , check if exist 
-	// // add user to base
 
 	std::string login;
 	std::string password;
@@ -138,7 +117,3 @@ void CLIBaseApp::help()
 		break;
 	}
 }
-
-
-
-

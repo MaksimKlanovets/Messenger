@@ -30,6 +30,11 @@ const std::string& Message::getMessage() const
 	return _data.second;
 }
 
+std::vector<std::string>& Message::getMessages()
+{
+	return _messages;
+}
+
 const std::string& Message::getLogin() const
 {
 	return _data.first;
@@ -45,9 +50,9 @@ void Message::setLogin(std::string& login)
 	_data.first = login;
 }
 
-void Message::setMessage(std::string& message)
+void Message::setMessage(std::string&& message)
 {
-	
+	_data.second = message;
 }
 
 void Message::setDt(tm &dt)

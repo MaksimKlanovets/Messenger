@@ -23,12 +23,6 @@ BaseApp& BaseApp::operator=(const BaseApp&)
 	return *this;
 }
 
-
-void BaseApp::writeMessageToFile()
-{
-
-}
-
 void BaseApp::readUsersFromFile()
 {
 	std::ifstream myfile("/home/neronsuper/Documents/vsc projects/Messanger/Database/users.txt");
@@ -68,24 +62,28 @@ std::string BaseApp::lastLine(std::string path)
 		fs.seekg(-1, std::ios_base::end);
 		if(fs.peek() == '\n')
 		{
-		//Start searching for \n occurrences
-		fs.seekg(-1, std::ios_base::cur);
-		int i = fs.tellg();
-		for(i;i > 0; i--)
-		{
-			if(fs.peek() == '\n')
+			//Start searching for \n occurrences
+			fs.seekg(-1, std::ios_base::cur);
+			int i = fs.tellg();
+			for(i; i > 0; --i)
 			{
-			//Found
-			fs.get();
-			break;
+				if(fs.peek() == '\n')
+				{
+					//Found
+					fs.get();
+					break;
+				}
+				//Move one character back
+				fs.seekg(i, std::ios_base::beg);
 			}
-			//Move one character back
-			fs.seekg(i, std::ios_base::beg);
-		}
 		}
 		
 		getline(fs, lastline);
 
+	}
+	else
+	{
+		std::cout << "Could not open file\n";
 	}
 	
 	return lastline;
@@ -93,7 +91,6 @@ std::string BaseApp::lastLine(std::string path)
 
 void BaseApp::readFirstMesFromChats(UserData* userData)
 {
-	std::string tempStr;
     std::string path = "/home/neronsuper/Documents/vsc projects/Messanger/Database/users/";
     path.append(userData->getPrivateUserData()->getPData()->first).append("/chats/");
  
@@ -101,8 +98,12 @@ void BaseApp::readFirstMesFromChats(UserData* userData)
 	for (auto & p : fs::directory_iterator(path))
 	{
 		std::string currentUser = p.path().filename().generic_string();
-
-		userData->getMessages()[currentUser] = std::make_unique<Message>(currentUser, lastLine(path.append(currentUser)));
+		std::string currentUserPath = p.path().generic_string();
+		
+		if (userData->getMessages().count(currentUser)) // if element exists
+			userData->getMessages()[currentUser].get()->setMessage(lastLine(currentUserPath));
+		else
+			userData->getMessages()[currentUser] = std::make_unique<Message>(currentUser, lastLine(currentUserPath));
 	}
 
 }
@@ -174,4 +175,25 @@ void BaseApp::sendMessage(const Message& message, const std::string& receiver)
 	}
 	currentUserFile.close();
     recipientUserFile.close();
+}
+
+void BaseApp::readFullChat(UserData* userData, std::string chat)
+{
+	std::string currentUser = "/home/neronsuper/Documents/vsc projects/Messanger/Database/users/"; // opening file current user 
+    currentUser.append(userData->getPrivateUserData()->getPData()->first).append("/chats/").append(chat);
+
+    std::string tmp;
+    std::ifstream in(currentUser); 
+
+	userData->getMessages()[chat].get()->getMessages() = {};
+
+    if (in.is_open())
+    {
+        std::system("clear");
+        while (getline(in, tmp))
+        {
+            userData->getMessages()[chat].get()->getMessages().push_back(tmp);
+        }
+    }
+    in.close(); 
 }
